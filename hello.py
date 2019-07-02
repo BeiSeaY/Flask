@@ -44,14 +44,14 @@ app = Flask(__name__) #flask 类的构造函数只有一个必须制定的参数
           #abort不会把控制权交给调用他的函数，而是抛出异常把控制权交给Web服务器
 #     return '<h1>hello, %s</h1>'%user.name
 
-# manager = Manager(app) # flask扩展
-#
-# @app.route('/')
-# def index():
-#     return redirect('http://www.baidu.com')
-#
-# if __name__ == "__main__":
-#     manager.run()
+manager = Manager(app) # flask扩展
 
-if __name__ == "__main__": # 启动服务
-    app.run(debug=True)
+@app.route('/')
+def index():
+    return redirect('http://www.baidu.com')
+
+if __name__ == "__main__":
+    manager.run() #python hello.py runserver --help
+
+# if __name__ == "__main__": # 启动服务
+#     app.run(debug=True)
